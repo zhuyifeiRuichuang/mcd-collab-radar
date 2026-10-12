@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>麦麦联名 / 周边情报中枢</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+         background: #f5f6f8; color: #1a202c; line-height: 1.6; padding: 24px; }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  header { background: linear-gradient(135deg, #ffc72c 0%, #ffb000 100%);
+            border-radius: 14px; padding: 28px 32px; margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,.08); }
+  header h1 { font-size: 26px; color: #292929; }
+  header .sub { color: #5a4a00; font-size: 13px; margin-top: 6px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+           gap: 12px; margin-bottom: 22px; }
+  .stat { background: #fff; border-radius: 12px; padding: 16px 18px;
+          box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .stat .num { font-size: 26px; font-weight: 700; color: #c0392b; }
+  .stat .lbl { font-size: 12px; color: #718096; margin-top: 2px; }
+  section { background: #fff; border-radius: 14px; padding: 22px 26px;
+            margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  section h2 { font-size: 18px; margin-bottom: 14px; padding-left: 10px;
+               border-left: 4px solid #ffc72c; }
+  .tl-item { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px dashed #e2e8f0; }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-date { flex: 0 0 118px; font-size: 12px; color: #4a5568; font-weight: 600;
+             padding-top: 2px; }
+  .tl-title { font-size: 15px; font-weight: 600; }
+  .tl-meta { margin: 4px 0; }
+  .tl-content { font-size: 12px; color: #718096; }
+  .badge { display: inline-block; color: #fff; font-size: 11px; border-radius: 4px;
+           padding: 1px 8px; margin-right: 6px; vertical-align: middle; }
+  .ip-chip { display: inline-block; background: #ebf4ff; color: #2b6cb0; font-size: 11px;
+             border-radius: 4px; padding: 1px 8px; margin-left: 6px; }
+  .price { color: #c0392b; font-weight: 700; font-size: 13px; margin-left: 6px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+           gap: 14px; }
+  .card { border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;
+          background: #fff; display: flex; flex-direction: column; }
+  .card-zombie { opacity: .72; border-style: dashed; }
+  .card-img { width: 100%; height: 140px; object-fit: cover; background: #f7fafc; }
+  .card-body { padding: 12px 14px; }
+  .card-title { font-size: 14px; font-weight: 600; min-height: 42px; }
+  .card-meta { margin: 6px 0; }
+  .card-window { font-size: 12px; color: #4a5568; }
+  .card-selling { font-size: 12px; color: #718096; margin-top: 6px;
+                  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+                  overflow: hidden; }
+  .access { font-size: 12px; color: #2f855a; font-weight: 600; }
+  .sku-note { font-size: 11px; color: #4a5568; margin-top: 6px;
+              background: #f7fafc; border-radius: 4px; padding: 2px 8px;
+              display: inline-block; }
+  .zombie-note { font-size: 11px; color: #c0392b; margin-top: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; background: #f7fafc; padding: 8px 10px; color: #4a5568;
+       font-weight: 600; }
+  td { padding: 8px 10px; border-bottom: 1px solid #edf2f7; vertical-align: top; }
+  footer { font-size: 12px; color: #718096; background: #fff; border-radius: 12px;
+           padding: 16px 20px; }
+  footer p { margin-bottom: 4px; }
+  @media (max-width: 640px) { .tl-date { flex-basis: 86px; } body { padding: 12px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🍔 麦麦联名 / 周边情报中枢</h1>
+    <div class="sub">mcd-collab-radar ｜ 数据时间：2026-10-12 11:38:31（时钟源：campaign-calendar.currentTime）｜ 生成时间：2026-10-12T11:38:39</div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><div class="num">7</div><div class="lbl">联名 / 限定活动（进行中 5 ｜ 即将开始 2）</div></div>
+    <div class="stat"><div class="num">10</div><div class="lbl">跨界联名在售商品</div></div>
+    <div class="stat"><div class="num">2</div><div class="lbl">高稀缺活动（限量 / 即将开售）</div></div>
+    <div class="stat"><div class="num">2</div><div class="lbl">已下架商品（详情接口复核确认）</div></div>
+    <div class="stat"><div class="num">10</div><div class="lbl">到店锚点门店（去重）</div></div>
+  </div>
+
+  <section>
+    <h2>联名 / 限定活动时间轴</h2>
+
+      <div class="tl-item">
+        <div class="tl-date">2026-10-12、2026-10-13</div>
+        <div class="tl-body">
+          <div class="tl-title">麦当劳 X PEACEMINUSONE<span class="ip-chip">PEACEMINUSONE（G-DRAGON 主理品牌）</span> </div>
+          <div class="tl-meta"><span class="badge" style="background:#c0392b">进行中</span><span class="badge" style="background:#2f855a">常规</span></div>
+          <div class="tl-content">GD同款联名复古棒球帽 任意餐品消费加39.9元即可得 经典红黄配色搭配复古轮廓，MV同款灵感重现 更有标志性小雏菊刺绣图案点缀 10月8日10:45开售 更有APP专享积分抢先购10:40开抢 与GD一起探索潮流新篇章🖤</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2026-10-12、2026-10-18</div>
+        <div class="tl-body">
+          <div class="tl-title">韩式风味蘸酱上新❤️就「酱」心有所「薯」<span class="ip-chip">G-DRAGON 联动韩式风味系列</span> </div>
+          <div class="tl-meta"><span class="badge" style="background:#c0392b">进行中</span><span class="badge" style="background:#2f855a">常规</span></div>
+          <div class="tl-content">🆕韩式辣椒黄油风味酱 韩式辣酱碰撞青梅，裹挟黄油香气 鸡薯双全盒仅需15.9元起✨getGD同款花式比心 🆕韩式烟熏芝士风味酱 浓郁芝香邂逅韩式香辛风味，烟熏香气层层释放 蘸酱炸鸡仅需11.9元起🍗 炸鸡薯饼蘸酱我全都喜欢！ 10月8日 10:30起正式开售⏰</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2026-10-12、2026-10-16</div>
+        <div class="tl-body">
+          <div class="tl-title">麦当劳联动G-DRAGON<span class="ip-chip">G-DRAGON</span> </div>
+          <div class="tl-meta"><span class="badge" style="background:#c0392b">进行中</span><span class="badge" style="background:#2f855a">常规</span></div>
+          <div class="tl-content">带来韩式风味系列新品❗️ 龙焰鸡腿堡三件套 26.9 元起即刻开吃🍔 韩式辣酱搭配酥脆多汁鸡腿排🤤 还可升级29.9元龙焰芝士棒鸡腿堡三件套， 两根马苏里拉拉丝芝士条，热时双倍拉丝更过瘾🧀 10月8日 10:30 准时开售⏰You lovin' it？</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2026-10-12</div>
+        <div class="tl-body">
+          <div class="tl-title">过家家派对上线，快来一起解锁梦想职业<span class="ip-chip">过家家派对（职业体验）</span> </div>
+          <div class="tl-meta"><span class="badge" style="background:#c0392b">进行中</span><span class="badge" style="background:#2f855a">常规</span></div>
+          <div class="tl-content">过家家派对就要开始啦! 萌娃cosplay梦想职业，精美职业服带回家 DIY 创意手工，想象力在指尖自由绽放 9月9日到店解锁过家家派对 粉红姐姐带你玩转麦当劳，开启童趣一天~</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2026-10-12、2026-10-28</div>
+        <div class="tl-body">
+          <div class="tl-title">“韩”风刮到了四件套~龙焰鸡腿堡来袭！<span class="ip-chip">G-DRAGON 联动韩式风味系列</span> </div>
+          <div class="tl-meta"><span class="badge" style="background:#c0392b">进行中</span><span class="badge" style="background:#2f855a">常规</span></div>
+          <div class="tl-content">🍔麦金卡点「龙焰鸡腿堡」四件套29元起 🍗韩式辣酱碰撞青梅黄油，爆脆鸡腿排多汁裹酱！ ✨一张麦金卡包揽全天吃麦特权 6折早餐、9.9元麦咖啡、满额免配统统安排 😋快来打卡美味，这场韩式盛宴等你加入！</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2026-10-15</div>
+        <div class="tl-body">
+          <div class="tl-title">麦当劳 X PEACEMINUSONE<span class="ip-chip">PEACEMINUSONE（G-DRAGON 主理品牌）</span> </div>
+          <div class="tl-meta"><span class="badge" style="background:#b7791f">即将开始</span><span class="badge" style="background:#c0392b">高稀缺</span></div>
+          <div class="tl-content">周边第二弹——联名徽章即将发售 任意餐品消费加39.9元即可得 集结MCD爱心、小雏菊和经典薯条元素🍟 一套三枚🖤限量珍藏 10月15日10:45开售 更有APP专享积分抢先购10:40开抢</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2026-10-22</div>
+        <div class="tl-body">
+          <div class="tl-title">第三周周边即将开售✨限定主题丝巾！ </div>
+          <div class="tl-meta"><span class="badge" style="background:#b7791f">即将开始</span><span class="badge" style="background:#c0392b">高稀缺</span></div>
+          <div class="tl-content">丝巾搭配棒球帽的潮流谁懂😎 麦当劳「我就喜欢」限定丝巾 任意餐品消费加 39.9 元即可得 颈间、包袋、手腕、头饰一巾多玩🤔 叠搭联名棒球帽&amp;徽章随心玩出专属潮流造型✨ 10月22日10:45开售 更有APP专享积分抢先购10:40开抢 get时尚icon同款潮流造型</div>
+        </div>
+      </div>
+  </section>
+
+  <section>
+    <h2>跨界联名商品（积分 / 现金）</h2>
+    <div class="cards">
+
+      <div class="card">
+        <img class="card-img" src="https://img.mcd.cn/ecs/572d282f03f9d757.png" alt="麦当劳一起开心鸭尊享版生日派对" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <div class="card-title">麦当劳一起开心鸭尊享版生日派对<span class="ip-chip">迪士尼·唐老鸭</span></div>
+          <div class="card-meta"><span class="badge" style="background:#c0392b">进行中</span><span class="badge" style="background:#2f855a">常规</span><span class="access">¥138</span></div>
+          <div class="card-window">档期 2024-10-31 ~ 2026-12-31 ｜ 剩 80 天</div>
+          <div class="card-selling">［上海迪士尼唐老鸭主题］尊享版生日派对，小朋友们快来进入唐老鸭的奇妙世界，在麦当劳体验一场特别的生日派对，一起开心鸭！</div>
+          <div class="sku-note">SKU 9093：¥138</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://img.mcd.cn/ecs/c2e746f29662c40d.png" alt="麦当劳奇妙生日派对" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <div class="card-title">麦当劳奇妙生日派对<span class="ip-chip">迪士尼·米妮</span></div>
+          <div class="card-meta"><span class="badge" style="background:#c0392b">进行中</span><span class="badge" style="background:#2f855a">常规</span><span class="access">¥50</span></div>
+          <div class="card-window">档期 2023-03-16 ~ 2027-12-31 ｜ 剩 445 天</div>
+          <div class="card-selling">上海迪士尼度假区米妮主题</div>
+          <div class="sku-note">SKU 2027：¥50</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://img.mcd.cn/ecs/378959377bfe483a.jpg" alt="迪士尼奇妙生日探索之旅" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <div class="card-title">迪士尼奇妙生日探索之旅<span class="ip-chip">迪士尼</span></div>
+          <div class="card-meta"><span class="badge" style="background:#c0392b">进行中</span><span class="badge" style="background:#2f855a">常规</span><span class="access">¥45</span></div>
+          <div class="card-window">档期 2022-09-22 ~ 2026-12-31 ｜ 剩 80 天</div>
+          <div class="card-selling">化身小小探险家，一起开启奇妙探索</div>
+          <div class="sku-note">SKU 1272：¥45</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://img.mcd.cn/ecs/8531de33ea5be685.jpg" alt="麦当劳狂欢生日派对 迪士尼疯狂动物城主题（尊享版）" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <div class="card-title">麦当劳狂欢生日派对 迪士尼疯狂动物城主题（尊享版）<span class="ip-chip">迪士尼·疯狂动物城</span></div>
+          <div class="card-meta"><span class="badge" style="background:#c0392b">进行中</span><span class="badge" style="background:#2f855a">常规</span><span class="access">¥98</span></div>
+          <div class="card-window">档期 2024-03-28 ~ 2026-12-31 ｜ 剩 80 天</div>
+          <div class="card-selling">&quot;欢迎小朋友们变身喜爱的动物角色，尽情狂欢，为寿星庆生，体验独一无二的迪士尼疯狂动物城主题的 麦当劳生日派对&quot;</div>
+          <div class="sku-note">SKU 5753：¥98</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://img.mcd.cn/ecs/feb9130d2d541617.jpg" alt="麦当劳狂欢生日派对 迪士尼疯狂动物城主题" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <div class="card-title">麦当劳狂欢生日派对 迪士尼疯狂动物城主题<span class="ip-chip">迪士尼·疯狂动物城</span></div>
+          <div class="card-meta"><span class="badge" style="background:#c0392b">进行中</span><span class="badge" style="background:#2f855a">常规</span><span class="access">¥58</span></div>
+          <div class="card-window">档期 2026-03-03 ~ 2026-12-31 ｜ 剩 80 天</div>
+          <div class="card-selling">欢迎小朋友们变身喜爱的动物角色，尽情狂欢，为寿星庆生，体验独一无二的迪士尼疯狂动物城主题的麦当劳生日派对</div>
+          <div class="sku-note">SKU 5730：¥58</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://img.mcd.cn/ecs/0011dc7b40deacce.jpg" alt="麦当劳一起开心鸭生日派对" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <div class="card-title">麦当劳一起开心鸭生日派对<span class="ip-chip">迪士尼·唐老鸭</span></div>
+          <div class="card-meta"><span class="badge" style="background:#c0392b">进行中</span><span class="badge" style="background:#2f855a">常规</span><span class="access">¥50</span></div>
+          <div class="card-window">档期 2024-09-27 ~ 2026-12-31 ｜ 剩 80 天</div>
+          <div class="card-selling">［上海迪士尼唐老鸭主题］生日派对，小朋友们快来进入唐老鸭的奇妙世界，在麦当劳体验一场特别的生日派对，一起开心鸭！</div>
+          <div class="sku-note">SKU 8660：¥50</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://img.mcd.cn/ecs/4a5362ac61da4ba9.jpg" alt="麦当劳海底小纵队欢乐派对（尊享版）" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <div class="card-title">麦当劳海底小纵队欢乐派对（尊享版）<span class="ip-chip">海底小纵队</span></div>
+          <div class="card-meta"><span class="badge" style="background:#c0392b">进行中</span><span class="badge" style="background:#2f855a">常规</span><span class="access">¥88</span></div>
+          <div class="card-window">档期 2026-07-21 ~ 2027-07-15 ｜ 剩 276 天</div>
+          <div class="card-selling">以“海洋保护”为核心的故事内核，具有跨越文化和年龄的普世性能够与消费者建立深厚的价值共鸣和环保意识。</div>
+          <div class="sku-note">SKU 18081：¥88</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://img.mcd.cn/ecs/2270b522c9414ae7.jpg" alt="麦当劳海底小纵队欢乐派对（常规版）" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <div class="card-title">麦当劳海底小纵队欢乐派对（常规版）<span class="ip-chip">海底小纵队</span></div>
+          <div class="card-meta"><span class="badge" style="background:#c0392b">进行中</span><span class="badge" style="background:#2f855a">常规</span><span class="access">¥58</span></div>
+          <div class="card-window">档期 2026-07-21 ~ 2027-07-15 ｜ 剩 276 天</div>
+          <div class="card-selling">以“海洋保护”为核心的故事内核，具有跨越文化和年龄的普世性能够与消费者建立深厚的价值共鸣和环保意识。</div>
+          <div class="sku-note">SKU 18080：¥58</div>
+        </div>
+      </div>
+
+      <div class="card card-zombie">
+        <img class="card-img" src="https://img.mcd.cn/ecs/b1830d7dc1ea9a89.jpg" alt="罗技键鼠套装" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <div class="card-title">罗技键鼠套装<span class="ip-chip">罗技</span></div>
+          <div class="card-meta"><span class="badge" style="background:#718096">已结束</span><span class="badge" style="background:#718096">已下架</span><span class="access">6666 积分</span></div>
+          <div class="card-window">档期 2026-08-21 ~ 2026-08-21 ｜ 窗口已过</div>
+          <div class="card-selling">积分兑大礼，罗技键鼠套装6666积分兑换！8月17日-8月21日，每日限量 5 份，先到先得</div>
+          <div class="zombie-note">详情接口复核：该商品已下架（列表仍展示，官方 status 字段不可信）</div>
+        </div>
+      </div>
+
+      <div class="card card-zombie">
+        <img class="card-img" src="https://img.mcd.cn/ecs/3d4d37c8feb04aab.jpg" alt="Nike Book 2 麦当劳特别联名款" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <div class="card-title">Nike Book 2 麦当劳特别联名款<span class="ip-chip">Nike</span></div>
+          <div class="card-meta"><span class="badge" style="background:#718096">已结束</span><span class="badge" style="background:#718096">已下架</span><span class="access">8888 积分</span></div>
+          <div class="card-window">档期 2026-06-05 ~ 2026-06-05 ｜ 窗口已过</div>
+          <div class="card-selling">独一无二，梦幻联动，Nike Book 2 麦当劳特别联名款 每人限购一双，每日 14:00 准时开抢</div>
+          <div class="zombie-note">详情接口复核：该商品已下架（列表仍展示，官方 status 字段不可信）</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>麦当劳自有 IP / 季节限定主题</h2>
+    <table>
+      <thead><tr><th>名称</th><th>IP</th><th>档期</th><th>获取方式</th></tr></thead>
+      <tbody>
+
+        <tr>
+          <td>麦麦奇妙夜捣蛋派对常规版</td>
+          <td>麦麦奇妙夜（万圣限定）</td>
+          <td><span class="badge" style="background:#c0392b">进行中</span>剩 723 天</td>
+          <td>¥58</td>
+        </tr>
+
+        <tr>
+          <td>万马奔腾开心派对尊享版</td>
+          <td>万马奔腾（生肖主题）</td>
+          <td><span class="badge" style="background:#c0392b">进行中</span>剩 261 天</td>
+          <td>¥138</td>
+        </tr>
+
+        <tr>
+          <td>麦当劳过家家派对尊享版</td>
+          <td>过家家派对（职业体验）</td>
+          <td><span class="badge" style="background:#c0392b">进行中</span>剩 445 天</td>
+          <td>¥118</td>
+        </tr>
+
+        <tr>
+          <td>四小福永远好朋友派对豪华版</td>
+          <td>四小福（麦当劳经典 IP）</td>
+          <td><span class="badge" style="background:#c0392b">进行中</span>剩 445 天</td>
+          <td>¥88</td>
+        </tr>
+
+        <tr>
+          <td>万马奔腾开心派对常规版</td>
+          <td>万马奔腾（生肖主题）</td>
+          <td><span class="badge" style="background:#c0392b">进行中</span>剩 261 天</td>
+          <td>¥58</td>
+        </tr>
+
+        <tr>
+          <td>麦麦奇妙夜捣蛋派对尊享版</td>
+          <td>麦麦奇妙夜（万圣限定）</td>
+          <td><span class="badge" style="background:#c0392b">进行中</span>剩 723 天</td>
+          <td>¥128</td>
+        </tr>
+
+        <tr>
+          <td>四小福永远好朋友派对常规版</td>
+          <td>四小福（麦当劳经典 IP）</td>
+          <td><span class="badge" style="background:#c0392b">进行中</span>剩 445 天</td>
+          <td>¥58</td>
+        </tr>
+
+        <tr>
+          <td>麦当劳过家家派对</td>
+          <td>过家家派对（职业体验）</td>
+          <td><span class="badge" style="background:#c0392b">进行中</span>剩 222 天</td>
+          <td>¥55</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>到店锚点（联名商品 / 派对可预约门店参考）</h2>
+    <table>
+      <thead><tr><th>门店</th><th>地址</th><th>营业时间</th><th>距离</th></tr></thead>
+      <tbody>
+
+        <tr>
+          <td>麦当劳上海黄浦华旭国际大厦餐厅</td>
+          <td>南京东路街道西藏中路336号</td>
+          <td>00:00-23:59</td>
+          <td>144m</td>
+        </tr>
+
+        <tr>
+          <td>麦当劳上海福州路餐厅</td>
+          <td>福州路666号</td>
+          <td>06:30-23:00</td>
+          <td>235m</td>
+        </tr>
+
+        <tr>
+          <td>麦当劳上海食品一店餐厅</td>
+          <td>南京东路720号</td>
+          <td>06:30-23:00</td>
+          <td>355m</td>
+        </tr>
+
+        <tr>
+          <td>麦当劳上海雅居乐餐厅</td>
+          <td>西藏中路525号</td>
+          <td>06:00-23:00</td>
+          <td>382m</td>
+        </tr>
+
+        <tr>
+          <td>麦当劳上海南京西路NX258餐厅</td>
+          <td>南京西路258号1幢一层</td>
+          <td>07:00-23:00</td>
+          <td>412m</td>
+        </tr>
+
+        <tr>
+          <td>上海锦绣路得来速餐厅</td>
+          <td>锦延路337号</td>
+          <td>07:00-22:00</td>
+          <td>6720m</td>
+        </tr>
+
+        <tr>
+          <td>上海闸北江场西路和典创意园得来速餐厅</td>
+          <td>江场西路180号7幢</td>
+          <td>07:00-23:00</td>
+          <td>7859m</td>
+        </tr>
+
+        <tr>
+          <td>上海静安沪太支路飞马旅创新园得来速餐厅</td>
+          <td>沪太支路538号101、102室</td>
+          <td>07:00-23:00</td>
+          <td>8184m</td>
+        </tr>
+
+        <tr>
+          <td>上海康建商务广场得来速餐厅</td>
+          <td>真南路1288号麦当劳</td>
+          <td>07:00-21:00</td>
+          <td>10565m</td>
+        </tr>
+
+        <tr>
+          <td>上海五星路得来速餐厅</td>
+          <td>五星路302号</td>
+          <td>07:00-23:00</td>
+          <td>10680m</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:12px;color:#718096;margin-top:8px">注：官方门店接口单次最多返回 5 家、无分页，此处按「到店 / 得来速」双场景扇出去重； longitude/latitude 官方恒返回 0.0，不提供地图渲染。</p>
+  </section>
+
+  <footer>
+    <p><b>合规声明</b></p>
+    <p>1. 本项目为麦当劳程序员创意开发大赛参赛作品，由参赛者独立开发，<b>非麦当劳官方产品</b>；</p>
+    <p>2. 数据全部来自麦当劳中国官方 MCP 接口实时返回（campaign-calendar / mall-points-products / mall-product-detail / query-nearby-stores），餐品、价格及供应状态<b>以麦当劳官方渠道实时结果为准</b>；</p>
+    <p>3. 稀缺度 / 档期标签由公开规则推导，仅供参考，<b>不构成任何购买建议，不引导二级市场炒作</b>；</p>
+    <p>4. 本项目不收集、不输出任何个人信息；未调用任何下单 / 支付类工具。</p>
+  </footer>
+</div>
+</body>
+</html>

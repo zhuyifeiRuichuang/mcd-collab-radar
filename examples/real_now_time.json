@@ -1,0 +1,17 @@
+{
+  "fetched_at": "2026-10-12T11:26:13",
+  "source_tool": "now-time-info",
+  "time": {
+    "timestamp": 1791775574629,
+    "datetime": "2026-10-12T11:26:14.629",
+    "formatted": "2026-10-12 11:26:14",
+    "date": "2026-10-12",
+    "year": 2026,
+    "month": 10,
+    "day": 12,
+    "dayOfWeek": "MONDAY",
+    "timezone": "GMT+08:00",
+    "offset": "+08:00",
+    "utc": "2026-10-12T03:26:14.629Z"
+  }
+}
